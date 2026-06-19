@@ -1,0 +1,24 @@
+# === Entorno Virtual ===
+venv/
+env/
+.env
+
+# === Caché de Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# === Datos Privados y Resultados ===
+# Ignoramos la información sensible de la empresa y los resultados generados
+datos/
+RESULTADOS_ASISTENCIA/
+*.xls
+*.xlsx
+*.csv
+
+
+# === Herramientas de Desarrollo ===
+.vscode/
+.idea/

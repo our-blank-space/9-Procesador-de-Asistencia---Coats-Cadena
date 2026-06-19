@@ -1,0 +1,16 @@
+# === MANEJO DE DATOS Y EXCEL ===
+pandas>=2.2.0           # El motor principal para procesar y limpiar los datos.
+openpyxl>=3.1.2         # Permite leer y escribir archivos Excel modernos (.xlsx).
+xlsxwriter>=3.2.0       # Permite darle formatos bonitos y colores a las celdas al guardar en Excel.
+xlrd>=2.0.1             # Permite leer el formato antiguo de Excel (.xls), indispensable para Data.xls.
+
+# === INTERFAZ GRÁFICA (GUI) ===
+customtkinter>=5.2.2    # Construye la ventana moderna, oscura y elegante.
+
+# === DASHBOARD Y GRÁFICOS ===
+plotly>=5.22.0          # Genera los gráficos interactivos (barras, dona, líneas) para el reporte HTML.
+
+# === UTILIDADES EXTRA ===
+loguru>=0.7.2           # Permite imprimir mensajes de colores en la terminal si hay errores.
+pytest>=8.2.0           # Usado para hacer pruebas automáticas al código.
+pytest-cov>=5.0.0       # Mide qué porcentaje del código ha sido probado por pytest. 
