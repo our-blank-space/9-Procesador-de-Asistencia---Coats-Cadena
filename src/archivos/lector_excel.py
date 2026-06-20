@@ -54,3 +54,29 @@ class LectorExcel:
                 pass
                 
         return marcaciones
+
+
+"""
+
+# ==========================================
+# BLOQUE DE PRUEBA INDIVIDUAL
+# ==========================================
+if __name__ == '__main__':
+    print("Iniciando prueba del Lector de Excel...")
+    
+    # Asumiendo que tu archivo Data.xls está un nivel afuera de tu proyecto
+    # Cámbialo si tu archivo está en otra ruta.
+    ruta_prueba = "Data.xls" 
+    
+    try:
+        marcas_extraidas = LectorExcel.leer_marcaciones(ruta_prueba)
+        print(f"¡Éxito! Logré extraer {len(marcas_extraidas)} marcaciones individuales.")
+        
+        print("\nMostrando cómo se ven las primeras 3 marcaciones:")
+        for marca in marcas_extraidas[:3]:
+            print(marca)
+            
+    except Exception as e:
+        print(f"Uy, algo falló: {e}")
+
+"""
