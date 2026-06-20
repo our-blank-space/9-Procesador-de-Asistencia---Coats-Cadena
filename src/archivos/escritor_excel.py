@@ -9,7 +9,7 @@ class EscritorEkcel:
     (modelos.py) y los exporta a archivos Ecxel. 
     Generara dos tablas:
     1- Resumen de horas
-    2- Reporte de incosistencias 
+    2- Reporte de inconsistencias 
     """
 
     @staticmethod
