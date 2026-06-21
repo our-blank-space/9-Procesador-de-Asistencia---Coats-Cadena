@@ -22,6 +22,7 @@ procesador-asistencia Coats Cadena /
 | **Exportación Excel** | `pandas`, `openpyxl` | Generación del archivo resumen y archivo de novedades |
 | **Reportes visuales** | `plotly` | Documentos HTML interactivos con gráficos dinámicos, sin depender de Quarto ni software de terceros |
 | **Control de versiones** | `git` | Flujo de trabajo profesional con ramas y commits semánticos |
+|**Manejo de imagenes**|`pillow| Libreria para el manejo de imagen en las interfaces visuales |
 
 
 
@@ -50,9 +51,14 @@ procesador-asistencia Coats Cadena /
 
 **pytest>=8.2.0**           # Usado para hacer pruebas automáticas al código.
 
-**pytest-cov>=5.0.0**       # Mide qué porcentaje del código ha sido probado por pytest. 
+**pytest-cov>=5.0.0**       # Mide qué porcentaje del código ha sido probado por pytest.
+
+**customtkinter>=5.2.2**    # Modernizar la interfaz gráfica
+
+**pillow**                  # Manejo de imagenes en una interfaz gráfica
 
 ## 3 Arquitectura de Datos — Flujo de Procesamiento
+
 ```
 [ Data.xlsx ] (Archivo bruto)
        │
@@ -65,7 +71,10 @@ procesador-asistencia Coats Cadena /
        ├─► [ resumen.xlsx ] (Reporte de horas trabajadas por empleado)
        │
        └─► [ novedades.xlsx ] (Registro de marcas incompletas o duplicadas)
-```
+
+``` 
+
+
 ## 4. Reglas de Negocio Implementadas
 
 ### Fórmula de horas trabajadas
@@ -82,3 +91,33 @@ El algoritmo es capaz de detectar y clasificar las siguientes alertas para Recur
 - **Exceso de marcas:** Más de 4 marcas válidas en el día.
 
 En caso de alerta crítica, el día se etiqueta como **⚠ Novedad** y se excluye del cálculo normal para no arrojar horas trabajadas falsas.
+
+
+![Dashboard Web Detallado](recursos/DashBoardWebDetallado 2026-06-20 16.49.35.excalidraw.png)
+
+- Manejo de colores corporativos.
+
+- Disposición de los elementos fijos, utilizando una plantilla HTML con inyección de código Python (funcionalidad de reporte).
+
+- Ventana GUI flotante para visualización básica de la información y procesamiento de los archivos:
+
+      - Agregar archivo.
+      - Botón para ejecutar el componente procesador de asistencia y sus dependencias para la extracción y procesamiento de la información.
+      - KPI (Total empleados - Días procesados - Horas trabajadas - Elementos con novedad y su porcentaje).
+
+![GUI Flotante](recursos/GuiFlotanteDetallado 2026-06-20 18.24.46.excalidraw.png)
+
+Dashboard Web
+- Banner superior (Header)
+      - Logo.
+      - Fecha de realización del reporte.
+      - Botón de exportación a PDF.
+
+- Contenido (Body)
+      - KPI (Total empleados - Días procesados - Horas trabajadas - Elementos con novedad y su porcentaje).
+      - Gráfico de barras de visualización de rendimiento de cada trabajador en el periodo.
+      - Gráfico de dona de visualización comparativa de porcentaje de días normales con novedad.
+      - Gráfico de línea para la tendencia de horas trabajadas.
+
+- Tabla similar a la exportada en Excel (novedades, resumen):
+      - Filtro total de vista de filas y campo para buscar por nombre de empleado.

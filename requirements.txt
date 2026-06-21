@@ -14,3 +14,5 @@ plotly>=5.22.0          # Genera los gráficos interactivos (barras, dona, líne
 loguru>=0.7.2           # Permite imprimir mensajes de colores en la terminal si hay errores.
 pytest>=8.2.0           # Usado para hacer pruebas automáticas al código.
 pytest-cov>=5.0.0       # Mide qué porcentaje del código ha sido probado por pytest. 
+customtkinter>=5.2.2    # Modernizar la interfaz gráfica
+pillow                  # Manejo de imagenes en una interfaz gráfica
