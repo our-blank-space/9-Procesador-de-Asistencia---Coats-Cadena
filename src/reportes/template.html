@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Asistencia — Coats Cadena</title>
+  
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <style>
+    {{ESTILOS_CSS}}
+  </style>
+</head>
+<body>
+<header>
+  <img src="https://cadenacoats.com/wp-content/themes/coats/assets/img/logo.png" alt="Coats Cadena Logo" style="height: 42px; object-fit: contain;">
+  <span class="fecha">Dashboard de Asistencia &mdash; {{FECHA_ACTUAL}}</span>
+</header>
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="etiq">Empleados</div>
+      <div class="valor" style="color:#60a5fa">{{TOTAL_EMPLEADOS}}</div>
+    </div>
+    <div class="kpi">
+      <div class="etiq">Días Procesados</div>
+      <div class="valor" style="color:var(--purple)">{{TOTAL_DIAS}}</div>
+    </div>
+    <div class="kpi">
+      <div class="etiq">Total Horas</div>
+      <div class="valor" style="color:var(--green)">{{TOTAL_HORAS}}</div>
+    </div>
+    <div class="kpi alert">
+      <div class="etiq">Con Novedad</div>
+      <div class="valor" style="color:var(--orange)">{{DIAS_CON_NOVEDAD}} <small style="font-size:16px">({{PCT_NOVEDAD}})</small></div>
+    </div>
+  </div>
+
+  <!-- Gráficos fila 1 -->
+  <div class="grid-2">
+    <div class="card">
+      <h2>Horas por Empleado</h2>
+      {{GRAFICO_BARRAS}}
+    </div>
+    <div class="card">
+      <h2>Normal vs Novedades</h2>
+      {{GRAFICO_DONA}}
+    </div>
+  </div>
+
+  <!-- Gráfico tendencia -->
+  <div class="card-full">
+    <h2>Tendencia Diaria de Horas</h2>
+    {{GRAFICO_LINEA}}
+  </div>
+
+  <!-- Tabla resumen general -->
+  <div class="card-full">
+    <h2>Resumen Detallado de Registros</h2>
+    <table id="tabla-resumen" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Empleado</th><th>Fecha</th><th>Entrada</th>
+          <th>Ini. Almuerzo</th><th>Fin Almuerzo</th><th>Salida</th>
+          <th>Horas</th><th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{TABLA_RESUMEN}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabla de novedades -->
+  <div class="card-full">
+    <h2>⚠ Registro de Novedades e Inconsistencias</h2>
+    {{TABLA_NOVEDADES}}
+  </div>
+
+</div>
+<footer>Sistema de Asistencia · Coats Cadena &mdash; Desarrollado con Python + Plotly</footer>
+
+<!-- jQuery y DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+      $('#tabla-resumen').DataTable({
+          "language": { "url": "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" },
+          "pageLength": 10,
+          "order": [[ 1, "desc" ]]
+      });
+      $('#tabla-novedades').DataTable({
+          "language": { "url": "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" },
+          "pageLength": 10
+      });
+  });
+</script>
+</body>
+</html>
