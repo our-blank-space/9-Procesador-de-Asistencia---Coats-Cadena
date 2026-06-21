@@ -1,50 +1,258 @@
 :root {
-  --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0;
-  --text: #1e293b; --muted: #64748b;
-  --coats-blue: #003087; --coats-accent: #2563eb;
-  --green: #16a34a; --orange: #ea580c; --purple: #9333ea;
+  /* Paleta de Colores - Semántica y Contraste */
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  
+  /* Identidad Corporativa */
+  --coats-blue: #003087;
+  --coats-accent: #2563eb;
+  
+  /* Estados */
+  --green: #16a34a;
+  --orange: #ea580c;
+  --purple: #9333ea;
+  
+  /* Estados - Fondos */
+  --bg-orange: #fff7ed;
+  --bg-hover: #f1f5f9;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background:var(--bg); color:var(--text); }
 
-header { background: #ffffff; padding:24px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom: 4px solid var(--coats-accent); border-top: 8px solid var(--coats-blue); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-.logo-coats { font-family: Arial, sans-serif; font-size: 28px; font-weight: 800; color: var(--coats-blue); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
-.logo-coats span { font-weight: 400; color: var(--coats-accent); }
-header span.fecha { color:var(--muted); font-size:13px; font-weight:600; text-transform: uppercase; letter-spacing: 0.05em; }
-
-.container { max-width:1200px; margin:0 auto; padding:30px 24px; }
-
-/* KPIs */
-.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px; }
-.kpi { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; text-align:center; border-top: 4px solid var(--coats-blue); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-.kpi.alert { border-top: 4px solid var(--orange); }
-.kpi .valor { font-size:36px; font-weight:800; line-height:1; margin:6px 0; }
-.kpi .etiq { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight: bold; }
-
-/* Gráficos */
-.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:28px; }
-.card, .card-full { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:28px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-.card h2, .card-full h2 { font-size:16px; color: var(--coats-blue); margin-bottom:15px; padding-bottom:10px; border-bottom:2px solid var(--border); font-weight: bold; }
-
-/* Personalización DataTables para Modo Claro */
-table.dataTable tbody tr { background-color: var(--card) !important; }
-table.dataTable tbody tr:hover { background-color: #f1f5f9 !important; }
-table.dataTable tbody td { border-bottom: 1px solid var(--border); color: var(--text); padding: 12px; }
-table.dataTable thead th { background: var(--coats-blue); color: white !important; text-transform: uppercase; font-size: 11px; padding: 14px; border: none; font-weight: 600; letter-spacing: 0.05em; }
-table.dataTable thead th:first-child { border-top-left-radius: 8px; }
-table.dataTable thead th:last-child { border-top-right-radius: 8px; }
-
-.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, 
-.dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_paginate { color: var(--text) !important; margin-bottom: 15px; font-size: 13px; }
-.dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select { 
-    background-color: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; outline: none; margin-left: 8px;
+/* -------------------------------------------------------------------------- */
+/* 1. RESET & BASE                                                            */
+/* -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button { color: var(--text) !important; border-radius: 6px; padding: 5px 12px; border: 1px solid transparent; }
-.dataTables_wrapper .dataTables_paginate .paginate_button.current { background: var(--coats-blue) !important; color: white !important; border: none; font-weight: bold; }
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: #e2e8f0 !important; color: var(--text) !important; border: 1px solid var(--border); }
 
-.nov { color:var(--orange); font-size:13px; font-weight: 500; }
-.nov-row td { background-color: #fff7ed !important; }
-.estado-ok { color:var(--green); font-weight:700; }
-.estado-nov { color:var(--orange); font-weight:700; }
-footer { text-align:center; padding:24px; color:var(--muted); font-size:12px; border-top:1px solid var(--border); margin-top:40px; font-weight: 500; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. LAYOUT COMPONENTS                                                       */
+/* -------------------------------------------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background: var(--card);
+  border-top: 8px solid var(--coats-blue);
+  border-bottom: 4px solid var(--coats-accent);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo-coats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--coats-blue);
+  letter-spacing: -0.5px;
+}
+
+.logo-coats span {
+  font-weight: 400;
+  color: var(--coats-accent);
+}
+
+header span.fecha {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. DASHBOARD METRICS & CARDS                                               */
+/* -------------------------------------------------------------------------- */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.kpi {
+  padding: 20px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--coats-blue);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.kpi.alert {
+  border-top-color: var(--orange);
+}
+
+.kpi .valor {
+  margin: 6px 0;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.kpi .etiq {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.card, 
+.card-full {
+  padding: 20px;
+  margin-bottom: 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card h2, 
+.card-full h2 {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--coats-blue);
+  border-bottom: 2px solid var(--border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. DATATABLES PLUGINS & TABLES                                             */
+/* -------------------------------------------------------------------------- */
+table.dataTable thead th {
+  padding: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--coats-blue);
+  border: none;
+}
+
+table.dataTable thead th:first-child { 
+  border-top-left-radius: 8px; 
+}
+
+table.dataTable thead th:last-child { 
+  border-top-right-radius: 8px; 
+}
+
+table.dataTable tbody tr { 
+  background-color: var(--card) !important; 
+}
+
+table.dataTable tbody tr:hover { 
+  background-color: var(--bg-hover) !important; 
+}
+
+table.dataTable tbody td { 
+  padding: 12px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border); 
+}
+
+/* DataTables Controles */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: var(--text) !important;
+}
+
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+  padding: 6px 10px;
+  margin-left: 8px;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+}
+
+/* DataTables Paginación */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 5px 12px;
+  color: var(--text) !important;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  font-weight: bold;
+  color: #ffffff !important;
+  background: var(--coats-blue) !important;
+  border: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: var(--text) !important;
+  background: var(--border) !important;
+  border: 1px solid var(--border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. UTILITIES / UTILS                                                      */
+/* -------------------------------------------------------------------------- */
+.nov { 
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--orange); 
+}
+
+.nov-row td { 
+  background-color: var(--bg-orange) !important; 
+}
+
+.estado-ok { 
+  font-weight: 700;
+  color: var(--green); 
+}
+
+.estado-nov { 
+  font-weight: 700;
+  color: var(--orange); 
+}

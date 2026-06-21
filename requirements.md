@@ -93,6 +93,7 @@ El algoritmo es capaz de detectar y clasificar las siguientes alertas para Recur
 En caso de alerta crítica, el día se etiqueta como **⚠ Novedad** y se excluye del cálculo normal para no arrojar horas trabajadas falsas.
 
 
+
 ![Dashboard Web Detallado](recursos/DashBoardWebDetallado 2026-06-20 16.49.35.excalidraw.png)
 
 - Manejo de colores corporativos.
