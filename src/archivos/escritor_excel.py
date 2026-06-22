@@ -48,11 +48,13 @@ class EscritorExcel:
             df_novedades.to_excel(ruta_nov, index=False)
 
 
-"""
 
 # ==========================================
 # BLOQUE DE PRUEBA: TUBERÍA COMPLETA
 # ==========================================
+
+# Esta prueba exporta los .xls a /RESULTADOS_PRUEBA"
+
 if __name__ == '__main__':
     import sys
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -63,8 +65,8 @@ if __name__ == '__main__':
     print("Iniciando prueba de la tubería completa...")
     
     # Tu ruta donde sí funcionó:
-    ruta_entrada = "Data.xls" 
-    carpeta_salida = "RESULTADOS_PRUEBA"
+    ruta_entrada = "recursos/Data.xls" 
+    carpeta_salida = "recursos/RESULTADOS_PRUEBA"
     
     try:
         print("1. Lector: Extrayendo datos del Excel crudo...")
@@ -82,4 +84,4 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"Uy, algo falló: {e}")
 
-"""
+
