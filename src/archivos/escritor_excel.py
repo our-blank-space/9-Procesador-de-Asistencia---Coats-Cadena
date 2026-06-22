@@ -66,7 +66,7 @@ if __name__ == '__main__':
     
     # Tu ruta donde sí funcionó:
     ruta_entrada = "recursos/Data.xls" 
-    carpeta_salida = "recursos/RESULTADOS_PRUEBA"
+    carpeta_salida = "datas/RESULTADOS_PRUEBA"
     
     try:
         print("1. Lector: Extrayendo datos del Excel crudo...")

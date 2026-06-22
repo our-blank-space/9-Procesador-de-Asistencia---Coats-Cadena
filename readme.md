@@ -56,9 +56,32 @@ Se abrirá una ventana donde podrás hacer clic en "Cargar Archivo Excel", proce
 pytest test/test_app_gui.py
 pytest /home/compartido/Desarrollo/procesador-asistencia/test
 
+## Empaquetado 
+### Herramienta de empaquetado
+- pip install pyinstaller
+
+- pyinstaller --onefile main.py
 
 ## 6. Respuesta a la Pregunta Complementaria
 
 ### ¿Qué procesos de una tintorería industrial considera que podrían beneficiarse de la automatización mediante herramientas de software?
 
-#### Procesos en la industria de una 
+Fundamentalme la automatización hace un papel crucial para una tintoreria industrial ¿Porque?.
+
+Inicilmente evaluar cada uno de los procesos con la adquicicion de datos para hacer implementaciones de software en las siguientes areas
+
+1. **Preparación y Pretratamiento**
+
+Para esta area se puede tener encuenta un sofware atematizado para el tema de inventario, para gestionar y evaluar los recurso, ademas usando integraciones con Inteligencia artificial con la herramienta **n8n** por si misma puede genorar reportes cosolidados para los pedidos del siguiente mes y tener una trasabilidad clara de cuanto es su inversion de cada producto bruto. para una mejora en la toma de decicion futura.
+
+2. **Tintura**
+
+Este es un paso que define el color estandar de una fibra, por lo tanto saber la docificacion de cada quimico u o recurso que afecta directa o indirectamente su color. es claramente fundamental para que el teñido del día de hoy sea igual al del día siguiente. Esto es más una integracion con el desarrollo en mecatronica, para usar elementos como sensores u o inyección automatizadas de un quimico en especifico para estandarizar este proceso y no allá errores humanos. 
+
+3. Post-tratamiento
+
+En este sector encontramos ares de maquinas de lavado, suavisante y secado, cada una de estas ares es claramente fundametal medir y gestionar cada uno de estos recurso y automatizar el analisis de los mismos utilizando herramientas como **QUARTO** o **R**, para informes claros, teniendo encuenta que ya hay herramientas de mecatronica ya implementadas. Para su debido analisis para posibles mejoras en cada uno de esos procesos.
+
+
+
+

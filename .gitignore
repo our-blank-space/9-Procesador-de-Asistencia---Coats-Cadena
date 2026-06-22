@@ -22,3 +22,8 @@ RESULTADOS_ASISTENCIA/
 # === Herramientas de Desarrollo ===
 .vscode/
 .idea/
+
+# === Empaquetado (PyInstaller) ===
+build/
+dist/
+*.spec
